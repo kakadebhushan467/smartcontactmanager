@@ -82,6 +82,17 @@ public User getUser() {
 public void setUser(User user) {
 	this.user = user;
 }
+@Override
+public String toString() {
+	return "Contact [cId=" + cId + ", name=" + name + ", SecondName=" + SecondName + ", work=" + work + ", email="
+			+ email + ", phone=" + phone + ", image=" + image + ", description=" + description + ", user=" + user
+			+ ", getcId()=" + getcId() + ", getName()=" + getName() + ", getSecondName()=" + getSecondName()
+			+ ", getWork()=" + getWork() + ", getEmail()=" + getEmail() + ", getPhone()=" + getPhone() + ", getImage()="
+			+ getImage() + ", getDescription()=" + getDescription() + ", getUser()=" + getUser() + ", getClass()="
+			+ getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString() + "]";
+}
+
+
 
 
 

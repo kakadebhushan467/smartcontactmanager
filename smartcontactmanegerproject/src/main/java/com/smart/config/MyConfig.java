@@ -50,8 +50,14 @@ public DaoAuthenticationProvider authenticationProvider()
         http.authorizeHttpRequests()
                  .requestMatchers("/admin/**").hasRole("ADMIN")
                 .requestMatchers("/user/**").hasRole("USER")
-                .requestMatchers("/**").permitAll().and().formLogin().and().csrf().disable();
+                .requestMatchers("/**").permitAll().and().formLogin()
         
+        .loginPage("/signin")
+        .loginProcessingUrl("/dologin")
+        .defaultSuccessUrl("/user/index")
+        .failureUrl("/login_fail")
+        .and().csrf().disable();
+
         return http.build();
     }
 	
