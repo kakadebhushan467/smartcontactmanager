@@ -56,7 +56,7 @@
 	<span onclick="toggleSidebar()" class="crossBtn">times</span>
 	
 	<a href ="#"  th:href="@{/user/index}" class="item" >   <i class="fa-solid fa-house"></i>Home</a>
-	<a href ="#" class="item" > <i class="fas fa-id-card-alt"></i> View Contacts</a>
+	<a href ="#" th:href="@{/user/show-contacts/0}" class="item" > <i class="fas fa-id-card-alt"></i> View Contacts</a>
 	<a href ="#" th:href="@{/user/add-contact}" class="item"><i class="fas fa-pencil-alt"></i> Add Contact</a>
 	<a href ="#" class="item" ><i class="fas fa-user-circle"></i>Your Profile</a>
 	<a href ="#" class="item" ><i class="fas fa-cogs"></i> Settings</a>
@@ -73,6 +73,18 @@
 	<div class="content mt-3">
 	
 	<i onclick="toggleSidebar()" class="fas fa-bars m-3"></i>
+	
+	<!-- massage box -->
+	  <div  th:if="${session.massage}"class="container">
+	  <div th:classappend="${'alert-'+session.massage.type}" class="alert  text-center" role="alert">
+	  <span th:text="${session.massage.content"></span>
+      
+       </div> 
+       
+       <th:block th:text="${#session.removeAttribute('message')}"></th:block>
+       
+	  </div>
+	
 	<div th:replace="${content}"></div>
 	
 	</div>
