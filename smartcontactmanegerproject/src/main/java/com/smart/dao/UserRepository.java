@@ -15,4 +15,6 @@ public interface UserRepository extends JpaRepository< User,Integer> {
 	public  User getUserByUserName(@Param("email") String email);
 
 	public Page<Contact> findContactsbyUser(int id, Pageable pageable);
+
+	public void save(Contact contact);
 }

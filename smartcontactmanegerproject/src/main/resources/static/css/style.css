@@ -73,7 +73,34 @@ body{
 	font-size:36px;
 	cursor:pointer;
 }
-
+/*User dashboard content style */
+.content{
+	margin-left: 20%;
+	width:75%;
+}
+.my_profile_pic{
+	width: 40px;
+	height: 40px;
+	object-fit: cover;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+/* search css */
+.search-container{
+   position: relative;
+}
+.search-result{
+   position: absolute;
+   background: white;
+   width:100%;
+   padding: 10px;
+   border: 1px solid gray;
+   display: none;
+}
+.active{
+background: #009688 !important;
+color: white !important;
+}
 
 
 

@@ -3,14 +3,14 @@
 	th:replace="normal/base::layout(~{::section})">
 <head>
 <meta charset="UTF-8" />
-<title>This is about page</title>
+<title>This is update page</title>
 </head>
 <body>
 	<section>
 	
 	<div class="card mr-3 ml-3">
 			<div class="card-body">
-				<h1 class="text-center">Add Contact</h1>
+				<h1 class="text-center">Update our Contact</h1>
 				<div class="container-fluid mt-1">
 					<div class="row">
 						<div class="col-md-8 offset-md-2">
@@ -18,7 +18,7 @@
 							 th:object="${contact}"
 							 enctype="multipart/form-data" 
 							 method="POST"
-							 th:action="@{/user/process-contact}"
+							 th:action="@{/user/process-update}"
 							 class="mt-2">
 								
 								<!--Firstname-->
@@ -28,7 +28,7 @@
 											<i class="fa fa-plus"></i>
 										</div>
 									</div>
-									<input required type="text" id="firstname" name="name"
+									<input th:value="${contact.name}" required type="text" id="firstname" name="name"
 										placeholder="Enter name here" class="form-control" />
 								</div>
 								
@@ -39,7 +39,7 @@
 											<i class="fa fa-user-alt"></i>
 										</div>
 									</div>
-									<input required type="text" id="secondName" name="secondName"
+									<input th:value="${contact.secondName}" required type="text" id="secondName" name="secondName"
 										placeholder="Enter nick name here!!" class="form-control" />
 								</div>
 								
@@ -50,7 +50,7 @@
 											<i class="fa fa-phone"></i>
 										</div>
 									</div>
-									<input required min="10" 
+									<input th:value="${contact.phone}" required min="10" 
 									type="number" 
 									id="phoneString"
 									name="phoneString"
@@ -65,7 +65,7 @@
 											<i class="fa fa-edge"></i>
 										</div>
 									</div>
-									<input required type="email" 
+									<input th:value="${contact.email}" required type="email" 
 									id="email" 
 									name="email"
 									placeholder="Enter your email" 
@@ -79,7 +79,7 @@
 											<i class="fa fa-briefcase"></i>
 										</div>
 									</div>
-									<input required type="text"
+									<input th:value="${contact.work}" required type="text"
 									 id="work" name="work"
 									placeholder="Enter your work"
 									 class="form-control" />
@@ -87,7 +87,7 @@
 								
 								<!--Contact Description-->
 								<div class="form-group mt-3">
-									<textarea id="mytextarea" placeholder="Enter contact description"
+									<textarea th:text="${contact.description}" id="mytextarea" placeholder="Enter contact description"
 										name="description" 
 										
 										class="form-control"
@@ -95,13 +95,8 @@
 								</div>
 								
 								<!--Contact Image-->
-								
-								<div claa="container">
-								<img style="width:250px;height:250px;" class="img-fluid my_profile_picture" src=""th:src=@{'/img/'+${}contact.image}" alt=""/>
-								</div>
-								
 								<div class="custom-file">
-									<input type="file" name="profileImage" />
+									<input  type="file" name="profileImage" />
 								</div>
 								<div class="container text-center">
 									<button class="btn btn-outline-primary">Save Contact</button>
@@ -112,8 +107,7 @@
 				</div>
 			</div>
 		</div>
-		
-	<script
+			<script
 			src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js"
 			referrerpolicy="origin"></script>
 		<script>
@@ -121,13 +115,7 @@
 				selector : '#mytextarea'
 			});
 		</script>
-		<script>
-			$(document).ready(()=>{
-				$('.item').removeClass("active");
-				$('#addcontact-link').addClass("active");
-			});
-		</script>
 	
 	</section>
-	</body>
-	</html>
+</body>
+</html>

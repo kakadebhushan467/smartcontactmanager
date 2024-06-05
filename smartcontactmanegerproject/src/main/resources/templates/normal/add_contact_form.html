@@ -95,6 +95,11 @@
 								</div>
 								
 								<!--Contact Image-->
+								
+								<div claa="container">
+								<img style="width:250px;height:250px;" class="img-fluid my_profile_picture" src=""th:src=@{'/img/'+${}contact.image}" alt=""/>
+								</div>
+								
 								<div class="custom-file">
 									<input type="file" name="profileImage" />
 								</div>
@@ -120,7 +125,7 @@
 			$(document).ready(()=>{
 				$('.item').removeClass("active");
 				$('#addcontact-link').addClass("active");
-			})
+			});
 		</script>
 	
 	</section>
